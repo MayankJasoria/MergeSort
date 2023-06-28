@@ -15,6 +15,7 @@ class ParallelMergeSorter {
     public int[] sort() {
         ForkJoinPool pool = ForkJoinPool.commonPool();
         pool.invoke(new ParallelMergeSort(0, array.length - 1));
+        pool.shutdown();
         return array;
     }
 
